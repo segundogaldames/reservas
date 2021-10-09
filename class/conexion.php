@@ -4,7 +4,7 @@
 class Conexion extends PDO
 {
         //atributos de la clase conexion
-	private $host = 'localhost';
+	private $host = 'localhost'; #127.0.0.1
 	private $base = 'reservas';
 	private $user = 'root';
 	private $pass = '1234'; //el password para usuarios de Windows es vacio ''

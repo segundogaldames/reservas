@@ -9,6 +9,6 @@ class Model
     public function __construct()
     {
         #creacion de una instancia de la clase conexion
-        $this->_db = new Conexion;
+        $this->_db = new Conexion; #colaboracion de objetos
     }
 }
