@@ -22,7 +22,7 @@
         <?php include('../partials/menu.php'); ?>
     </header>
     <div class="container-fluid">
-        <h4>Roles</h4>
+        <h4>Roles <a href="<?php echo ADDROL; ?>" class="btn btn-outline-success">Nuevo Rol</a> </h4>
     </div>
 
 </body>
