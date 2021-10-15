@@ -5,6 +5,12 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/rolModel.php');
+
+    $rol = new RolModel;
+    $roles = $rol->getRoles();
+
+    //print_r($roles);exit;
 
     $title = 'Roles';
 
@@ -27,6 +33,25 @@
     <div class="container-fluid">
         <div class="col-md-6 offset-md-3">
             <h4>Roles <a href="<?php echo ADDROL; ?>" class="btn btn-outline-success btn-sm">Nuevo Rol</a> </h4>
+
+            <?php include('../partials/mensajes.php'); ?>
+
+            <?php if(!empty($roles)): ?>
+                <table class="table table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>Rol</th>
+                    </tr>
+                    <?php foreach($roles as $rol): ?>
+                        <tr>
+                            <td><?php echo $rol['id']; ?></td>
+                            <td><?php echo $rol['nombre']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php else: ?>
+                <p class="text-info">No hay roles registrados</p>
+            <?php endif; ?>
         </div>
 
     </div>

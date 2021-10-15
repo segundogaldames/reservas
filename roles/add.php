@@ -5,6 +5,10 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/rolModel.php');
+
+    #crear un objeto de la clase RolModel
+    $rol = new RolModel;
 
     $title = 'Nuevo Rol';
 
@@ -14,6 +18,21 @@
 
         if (empty($nombre)) {
             $msg = 'Ingrese el nombre del rol';
+        }else{
+            #verificar que el rol ingresado no existe
+            $res = $rol->getRolNombre($nombre);
+
+            if (!empty($res)) {
+                $msg = 'El rol ingresado ya existe... intente con otro';
+            }else {
+                #ingresar el rol
+                $res = $rol->setRol($nombre);
+
+                if (!empty($res)) {
+                    $_SESSION['success'] = 'El rol se ha registrado correctamente';
+                    header('Location: ' . ROLES);
+                }
+            }
         }
 
         //print_r($nombre);

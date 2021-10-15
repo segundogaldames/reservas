@@ -20,6 +20,16 @@ class RolModel extends Model
         return $rol->fetchall();
     }
 
+    #metodo que consulta por el nombre de un rol
+    public function getRolNombre($nombre)
+    {
+        $rol = $this->_db->prepare("SELECT id FROM roles WHERE nombre = ?");
+        $rol->bindParam(1, $nombre);
+        $rol->execute();
+
+        return $rol->fetch();
+    }
+
     #metodo para registrar un rol
     public function setRol($nombre)
     {
