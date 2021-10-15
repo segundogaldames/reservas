@@ -7,12 +7,20 @@
     require('../class/config.php');
     require('../class/rolModel.php');
 
-    $rol = new RolModel;
-    $roles = $rol->getRoles();
 
-    //print_r($roles);exit;
+    if (isset($_GET['rol'])) {
+         $id = (int) $_GET['rol'];
 
-    $title = 'Roles';
+        $rol = new RolModel;
+        #verificar que hay un rol con el id del rol enviado desde index
+        $rol = $rol->getRolId($id);
+    }
+
+
+
+    //print_r($rol);exit;
+
+    $title = 'Rol';
 
 ?>
 <!DOCTYPE html>
@@ -32,30 +40,27 @@
     </header>
     <div class="container-fluid">
         <div class="col-md-6 offset-md-3">
-            <h4>Roles <a href="<?php echo ADD_ROL; ?>" class="btn btn-outline-success btn-sm">Nuevo Rol</a> </h4>
+            <h4><?php echo $title ?> </h4>
 
             <?php include('../partials/mensajes.php'); ?>
 
-            <?php if(!empty($roles)): ?>
+            <?php if(!empty($rol)): ?>
                 <table class="table table-hover">
-                    <tr>
-                        <th>Id</th>
-                        <th>Rol</th>
-                    </tr>
-                    <?php foreach($roles as $rol): ?>
-                        <tr>
-                            <td><?php echo $rol['id']; ?></td>
-                            <td>
-                                <a href="<?php echo SHOW_ROL . $rol['id']; ?>">
-                                    <?php echo $rol['nombre']; ?>
-                                </a>
-
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                   <tr>
+                       <th>Id:</th>
+                       <td><?php echo $rol['id']; ?></td>
+                   </tr>
+                   <tr>
+                       <th>Rol:</th>
+                       <td><?php echo $rol['nombre']; ?></td>
+                   </tr>
                 </table>
+                <p>
+                    <a href="" class="btn btn-outline-success">Editar</a>
+                    <a href="<?php ROLES; ?>" class="btn btn-outline-primary">Volver</a>
+                </p>
             <?php else: ?>
-                <p class="text-info">No hay roles registrados</p>
+                <p class="text-info">No hay datos</p>
             <?php endif; ?>
         </div>
 
