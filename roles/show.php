@@ -56,8 +56,8 @@
                    </tr>
                 </table>
                 <p>
-                    <a href="" class="btn btn-outline-success">Editar</a>
-                    <a href="<?php ROLES; ?>" class="btn btn-outline-primary">Volver</a>
+                    <a href="<?php echo EDIT_ROL . $id ?>" class="btn btn-outline-success">Editar</a>
+                    <a href="<?php echo ROLES; ?>" class="btn btn-outline-primary">Volver</a>
                 </p>
             <?php else: ?>
                 <p class="text-info">No hay datos</p>
