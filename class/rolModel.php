@@ -64,5 +64,16 @@ class RolModel extends Model
         $row = $rol->rowCount();
         return $row;
     }
+
+    #metodo para eliminar un rol
+    public function deleteRol($id)
+    {
+        $rol = $this->_db->prepare("DELETE FROM roles WHERE id = ?");
+        $rol->bindParam(1, $id);
+        $rol->execute();
+
+        $row = $rol->rowCount();
+        return $row;
+    }
 }
 
