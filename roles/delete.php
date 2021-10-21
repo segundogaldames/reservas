@@ -6,8 +6,10 @@ require('../class/config.php');
 require('../class/rutas.php');
 require('../class/rolModel.php');
 
-if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
-    $id = (int) $_POST['rol'];
+if (isset($_GET['rol'])) {
+    $id = (int) $_GET['rol'];
+
+    //print_r($id);exit;
 
     #verificar que hay un rol con el id recibido
     $roles = new RolModel;
