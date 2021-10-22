@@ -9,3 +9,9 @@ define('ADD_ROL', ROLES . 'add.php');
 define('SHOW_ROL', ROLES . 'show.php?rol=' . PARAM);
 define('EDIT_ROL', ROLES . 'edit.php?rol=' . PARAM);
 define('DEL_ROL', ROLES . 'delete.php');
+
+#definicion de rutas de especialidades
+define('ESPECIALIDADES', BASE_URL . 'especialidades/');
+define('ADD_ESPECIALIDAD', ESPECIALIDADES . 'add.php');
+define('SHOW_ESPECIALIDAD', ESPECIALIDADES . 'show.php?especialidad=' . PARAM);
+define('EDIT_ESPECIALIDAD', ESPECIALIDADES . 'edit.php?especialidad=' . PARAM);
