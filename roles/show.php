@@ -56,7 +56,12 @@
                 <p>
                     <a href="<?php echo EDIT_ROL . $id ?>" class="btn btn-outline-success">Editar</a>
                     <a href="<?php echo ROLES; ?>" class="btn btn-outline-primary">Volver</a>
-                    <a href="javascript:void()" onclick="eliminarRol('<?php echo $id ?>');" class="btn btn-outline-warning">Eliminar</a>
+
+                    <form name="form" action="<?php echo DEL_ROL; ?>" method="post">
+                        <input type="hidden" name="rol" value="<?php echo $id?>">
+                        <input type="hidden" name="confirm" value="1">
+                        <button type="button" onclick="eliminarRol();" class="btn btn-outline-warning">Eliminar</button>
+                    </form>
                 </p>
             <?php else: ?>
                 <p class="text-info">No hay datos</p>

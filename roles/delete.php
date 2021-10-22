@@ -6,8 +6,8 @@ require('../class/config.php');
 require('../class/rutas.php');
 require('../class/rolModel.php');
 
-if (isset($_GET['rol'])) {
-    $id = (int) $_GET['rol'];
+if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
+    $id = (int) $_POST['rol'];
 
     //print_r($id);exit;
 

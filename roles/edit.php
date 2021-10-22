@@ -48,6 +48,7 @@
     <title><?php echo TITLE . $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <script src="../js/funciones.js"></script>
 </head>
 <body>
     <header>
@@ -65,7 +66,7 @@
             <?php endif; ?>
 
             <?php if(!empty($rol)): ?>
-                <form action="" method="post">
+                <form name="form" action="" method="post">
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
                             <label for="rol" class="col-form-label">Rol<span class="text-danger">*</span>  </label>
@@ -80,7 +81,7 @@
                         </div>
                         <div class="">
                             <input type="hidden" name="confirm" value="1">
-                            <button type="submit" class="btn btn-outline-success">Editar</button>
+                            <button type="button" onclick="validaForm();" class="btn btn-outline-success">Editar</button>
                             <a href="<?php echo SHOW_ROL . $id; ?>" class="btn btn-outline-primary">Volver</a>
                         </div>
                     </div>
