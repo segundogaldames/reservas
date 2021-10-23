@@ -10,8 +10,17 @@
     require('../class/config.php');
     require('../class/especialidadModel.php');
 
-    $especialidades = new EspecialidadModel;
-    $especialidades = $especialidades->getEspecialidades();
+
+
+    if (isset($_GET['especialidad'])) {
+        $id = (int) $_GET['especialidad'];
+
+        $especialidades = new EspecialidadModel;
+
+        $especialidad = $especialidades->getEspecialidadId($id);
+
+    }
+
 
     //print_r($roles);exit;
 
@@ -39,26 +48,23 @@
 
             <?php include('../partials/mensajes.php'); ?>
 
-            <?php if(!empty($especialidades)): ?>
+            <?php if(!empty($especialidad)): ?>
                 <table class="table table-hover">
-                    <tr>
-                        <th>Id</th>
-                        <th>Especialidad</th>
-                    </tr>
-                    <?php foreach($especialidades as $esp): ?>
-                        <tr>
-                            <td><?php echo $esp['id']; ?></td>
-                            <td>
-                                <a href="<?php echo SHOW_ESPECIALIDAD . $esp['id']; ?>">
-                                    <?php echo $esp['nombre']; ?>
-                                </a>
-
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                   <tr>
+                       <th>Id:</th>
+                       <td><?php echo $especialidad['id']; ?></td>
+                   </tr>
+                   <tr>
+                       <th>Especialidad:</th>
+                       <td><?php echo $especialidad['nombre']; ?></td>
+                   </tr>
                 </table>
+                <p>
+                    <a href="<?php echo EDIT_ESPECIALIDAD . $id ?>" class="btn btn-outline-success">Editar</a>
+                    <a href="<?php echo ESPECIALIDADES; ?>" class="btn btn-outline-primary">Volver</a>
+                </p>
             <?php else: ?>
-                <p class="text-info">No hay especialidades registradas</p>
+                <p class="text-info">No hay datos</p>
             <?php endif; ?>
         </div>
 

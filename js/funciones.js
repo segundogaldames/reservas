@@ -13,7 +13,7 @@ function validaForm(){
     let form = document.form;
 
     if (form.nombre.value.length < 4) {
-        alert('Ingrese el nombre del rol, con al menos 4 caracteres');
+        alert('Ingrese el nombre, con al menos 4 caracteres');
         form.nombre.value = '';
         form.nombre.focus();
         return false;
