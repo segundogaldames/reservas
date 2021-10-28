@@ -20,7 +20,7 @@
                         <li><a class="dropdown-item" href="<?php echo ROLES; ?>">Roles</a></li>
                         <li><a class="dropdown-item" href="<?php echo ESPECIALIDADES; ?>">Especialidades</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="<?php echo EMPLEADOS; ?>">Empleados</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

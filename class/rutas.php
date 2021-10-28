@@ -15,3 +15,9 @@ define('ESPECIALIDADES', BASE_URL . 'especialidades/');
 define('ADD_ESPECIALIDAD', ESPECIALIDADES . 'add.php');
 define('SHOW_ESPECIALIDAD', ESPECIALIDADES . 'show.php?especialidad=' . PARAM);
 define('EDIT_ESPECIALIDAD', ESPECIALIDADES . 'edit.php?especialidad=' . PARAM);
+
+#definicion de rutas de empleados
+define('EMPLEADOS', BASE_URL . 'empleados/');
+define('ADD_EMPLEADO', EMPLEADOS . 'add.php');
+define('SHOW_EMPLEADO', EMPLEADOS . 'show.php?empleado=' . PARAM);
+define('EDIT_EMPLEADO', EMPLEADOS . 'edit.php?empleado=' . PARAM);

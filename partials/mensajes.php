@@ -2,7 +2,7 @@
     <div class="alert alert-success" role="alert">
         <?php echo $_SESSION['success']; ?>
     </div>
-    <?php unset($_SESSION['sucess']); ?>
+    <?php unset($_SESSION['success']); ?>
 <?php endif; ?>
 
 <?php if(isset($_SESSION['danger'])): ?>
