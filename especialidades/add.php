@@ -10,6 +10,8 @@
     require('../class/config.php');
     require('../class/especialidadModel.php');
 
+    //print_r('hola');
+
 
 
     $especialidades = new EspecialidadModel;

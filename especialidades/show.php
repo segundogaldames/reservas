@@ -22,7 +22,7 @@
     }
 
 
-    //print_r($roles);exit;
+    //print_r('hola');exit;
 
     $title = 'Especialidades';
 

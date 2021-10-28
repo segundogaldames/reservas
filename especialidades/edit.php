@@ -10,6 +10,8 @@
     require('../class/config.php');
     require('../class/especialidadModel.php');
 
+    //print_r('hola');
+
     if (isset($_GET['especialidad'])) {
         $id = (int) $_GET['especialidad'];
 
