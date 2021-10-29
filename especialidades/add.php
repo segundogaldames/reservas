@@ -83,7 +83,7 @@
                         <label for="especialidad" class="col-form-label">Especialidad<span class="text-danger">*</span>  </label>
                     </div>
                     <div class="col-auto">
-                        <input type="text" name="nombre" id="" class="form-contespecialidad" aria-describedby="especialidadHelpInline">
+                        <input type="text" name="nombre" id="" class="form-control" aria-describedby="especialidadHelpInline">
                     </div>
                     <div class="col-auto">
                         <span id="especialidadHelpInline" class="form-text text-danger">

@@ -34,4 +34,20 @@ class EmpleadoModel extends Model
 
         return $emp->fetch();
     }
+
+    public function addEmpleado($rut, $nombre, $email, $fecha_nacimiento, $rol, $especialidad)
+    {
+        $emp = $this->_db->prepare("INSERT INTO empleados(rut, nombre, email, fecha_nacimiento, rol_id, especialidad_id, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, now(), now())");
+        $emp->bindParam(1, $rut);
+        $emp->bindParam(2, $nombre);
+        $emp->bindParam(3, $email);
+        $emp->bindParam(4, $fecha_nacimiento);
+        $emp->bindParam(5, $rol);
+        $emp->bindParam(6, $especialidad);
+        $emp->execute();
+
+        $row = $emp->rowCount();
+
+        return $row;
+    }
 }
