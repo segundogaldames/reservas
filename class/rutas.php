@@ -21,3 +21,7 @@ define('EMPLEADOS', BASE_URL . 'empleados/');
 define('ADD_EMPLEADO', EMPLEADOS . 'add.php');
 define('SHOW_EMPLEADO', EMPLEADOS . 'show.php?empleado=' . PARAM);
 define('EDIT_EMPLEADO', EMPLEADOS . 'edit.php?empleado=' . PARAM);
+
+#ruta de usuarios
+define('USUARIOS', BASE_URL . 'usuarios/');
+define('ADD_USUARIO', USUARIOS . 'add.php?empleado=' . PARAM);

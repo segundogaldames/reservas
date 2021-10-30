@@ -40,7 +40,18 @@
         }elseif (!$especialidad) {
             $msg = 'Seleccione la especialidad del empleado';
         }else{
+            $empleado = $empleados->getEmpleadoRutEmail($rut, $email);
 
+            if ($empleado) {
+                $msg = 'Elrut o el email ingresados ya estan registrados... intente con otro';
+            }else {
+                $empleado = $empleados->addEmpleado($rut, $nombre, $email, $fecha_nacimiento, $rol, $especialidad);
+
+                if ($empleado) {
+                    $_SESSION['success'] = 'El empleado se ha registrado correctamente';
+                    header('Location: ' . EMPLEADOS);
+                }
+            }
         }
     }
 

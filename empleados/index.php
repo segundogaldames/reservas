@@ -49,7 +49,7 @@
                         <tr>
                             <td>
                                 <a href="<?php echo SHOW_EMPLEADO . $empleado['id']; ?>">
-                                    <?php echo $rol['nombre']; ?>
+                                    <?php echo $empleado['nombre']; ?>
                                 </a>
                             </td>
                             <td><?php echo $empleado['rol']; ?></td>
