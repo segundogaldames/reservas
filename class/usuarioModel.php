@@ -9,6 +9,15 @@ class UsuarioModel extends Model
         parent::__construct();
     }
 
+    public function getUsuarioEmpleado($empleado)
+    {
+        $usu = $this->_db->prepare("SELECT id FROM usuarios WHERE empleado_id = ?");
+        $usu->bindParam(1, $empleado);
+        $usu->execute();
+
+        return $usu->fetch();
+    }
+
     public function addUsuario($clave, $empleado)
     {
         $usu = $this->_db->prepare("INSERT INTO usuarios(clave, activo, empleado_id, created_at, updated_at) VALUES(?, 1, ?, now(), now())");

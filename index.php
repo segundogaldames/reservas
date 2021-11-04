@@ -8,6 +8,9 @@
 
     $title = 'Bienvenido';
 
+    // echo uniqid();
+    // exit;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

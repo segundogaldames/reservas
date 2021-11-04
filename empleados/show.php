@@ -97,7 +97,7 @@
                 </table>
                 <p>
                     <a href="<?php echo EDIT_EMPLEADO . $id ?>" class="btn btn-outline-success">Editar</a>
-                    <a href="" class="btn btn-outline-primary">Crear Cuenta</a>
+                    <a href="<?php echo ADD_USUARIO . $id; ?>" class="btn btn-outline-primary">Crear Cuenta</a>
                     <a href="<?php echo EMPLEADOS; ?>" class="btn btn-outline-primary">Volver</a>
                 </p>
             <?php else: ?>
