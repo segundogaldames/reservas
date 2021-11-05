@@ -8,6 +8,8 @@
     require('../class/empleadoModel.php');
     require('../class/usuarioModel.php');
 
+    session_start();
+
     $empleados = new EmpleadoModel;
     $usuarios = new UsuarioModel;
 
@@ -91,7 +93,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="reclave" class="form-label">Confirmar Clave<span class="text-danger">*</span>  </label>
+                        <label for="reclave" class="form-label">Confirmar Password<span class="text-danger">*</span>  </label>
                         <input type="password" name="reclave" class="form-control" oncopy="return false" onpaste="return false" aria-describedby="usuarioHelpInline">
                         <div id="usuarioHelp" class="form-text text-danger">Confirme el password del Empleado</div>
                     </div>

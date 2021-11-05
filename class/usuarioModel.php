@@ -1,6 +1,8 @@
 <?php
 
 require_once('model.php');
+require_once('Hash.php');
+require_once('config.php');
 
 class UsuarioModel extends Model
 {
@@ -20,6 +22,8 @@ class UsuarioModel extends Model
 
     public function addUsuario($clave, $empleado)
     {
+        $clave = Hash::getHash('sha1', $clave, HASH_KEY);
+
         $usu = $this->_db->prepare("INSERT INTO usuarios(clave, activo, empleado_id, created_at, updated_at) VALUES(?, 1, ?, now(), now())");
         $usu->bindParam(1, $clave);
         $usu->bindParam(2, $empleado);

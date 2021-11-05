@@ -6,7 +6,7 @@
     require('../class/rutas.php');
     require('../class/config.php');
     require('../class/empleadoModel.php');
-
+    require('../class/usuarioModel.php');
 
     session_start();
 
@@ -14,8 +14,10 @@
         $id = (int) $_GET['empleado'];
 
         $empleados = new EmpleadoModel;
+        $usuarios = new UsuarioModel;
 
         $empleado = $empleados->getEmpleadoId($id);
+        $usuario = $usuarios->getUsuarioEmpleado($id);
     }
 
     //print_r($roles);exit;
@@ -97,7 +99,11 @@
                 </table>
                 <p>
                     <a href="<?php echo EDIT_EMPLEADO . $id ?>" class="btn btn-outline-success">Editar</a>
-                    <a href="<?php echo ADD_USUARIO . $id; ?>" class="btn btn-outline-primary">Crear Cuenta</a>
+                    <?php if(!$usuario): ?>
+                        <a href="<?php echo ADD_USUARIO . $id; ?>" class="btn btn-outline-primary">Crear Cuenta</a>
+                    <?php else: ?>
+                        <a href="<?php echo EDIT_PASSWORD . $id; ?>" class="btn btn-outline-success">Cambiar Password</a>
+                    <?php endif; ?>
                     <a href="<?php echo EMPLEADOS; ?>" class="btn btn-outline-primary">Volver</a>
                 </p>
             <?php else: ?>
