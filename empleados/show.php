@@ -18,6 +18,13 @@
 
         $empleado = $empleados->getEmpleadoId($id);
         $usuario = $usuarios->getUsuarioEmpleado($id);
+
+        if ($usuario) {
+            $usu = $usuarios->getUsuarioId($usuario['id']);
+        }
+
+
+        //print_r($usu);exit;
     }
 
     //print_r($roles);exit;
@@ -78,6 +85,21 @@
                        <th>Especialidad:</th>
                        <td><?php echo $empleado['especialidad']; ?></td>
                    </tr>
+                   <?php if($usuario): ?>
+                        <tr>
+                            <th>Activo:</th>
+                            <td>
+                                <?php
+                                    if ($usu['activo'] == 1) {
+                                       echo "Si";
+                                    }else {
+                                        echo "No";
+                                    }
+                                ?>
+                                <a href="<?php echo EDIT_USUARIO . $usu['id']; ?>" class="btn btn-link btn-sm">Modificar Estado</a>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                    <tr>
                        <th>Fecha Creación:</th>
                        <td>

@@ -56,4 +56,16 @@ class UsuarioModel extends Model
 
         return $row;
     }
+
+    public function editUsuario($id, $activo)
+    {
+        $usu = $this->_db->prepare("UPDATE usuarios SET activo = ?, updated_at = now() WHERE id = ?");
+        $usu->bindParam(1, $activo);
+        $usu->bindParam(2, $id);
+        $usu->execute();
+
+        $row = $usu->rowCount();
+
+        return $row;
+    }
 }
