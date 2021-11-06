@@ -31,6 +31,7 @@ class UsuarioModel extends Model
 
     public function getUsuarioEmailClave($email, $clave)
     {
+        //print_r($email);exit;
         $clave = Hash::getHash('sha1', $clave, HASH_KEY);
 
         $usu = $this->_db->prepare("SELECT u.id, e.nombre as empleado, r.nombre as rol FROM usuarios u INNER JOIN empleados e ON u.empleado_id = e.id INNER JOIN roles r ON r.id = e.rol_id WHERE e.email = ? AND clave = ? AND u.activo = 1");

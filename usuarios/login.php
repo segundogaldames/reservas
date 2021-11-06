@@ -5,9 +5,10 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/Session.php');
     require('../class/usuarioModel.php');
 
-    session_start();
+   //session_start();
 
     $usuarios = new UsuarioModel;
 
@@ -25,7 +26,13 @@
             $usuario = $usuarios->getUsuarioEmailClave($email, $clave);
 
             if ($usuario) {
-                # code...
+                Session::set('autenticado', true);
+                Session::set('usuario_id', $usuario['id']);
+                Session::set('usuario_nombre', $usuario['empleado']);
+                Session::set('usuario_rol', $usuario['rol']);
+
+                print_r(Session::get('usuario_id'));exit;
+                //header('Location: ' . BASE_URL);
             }
         }
     }

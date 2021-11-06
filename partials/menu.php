@@ -23,6 +23,13 @@
                         <li><a class="dropdown-item" href="<?php echo EMPLEADOS; ?>">Empleados</a></li>
                     </ul>
                 </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?php echo LOGIN; ?>">Iniciar Sesión</a>
+                    </li>
+
                 <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                 </li>

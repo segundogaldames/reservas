@@ -5,6 +5,9 @@
     #llamada al archivo que contiene las rutas del sistema
     require('class/rutas.php');
     require('class/config.php');
+    require('class/Session.php');
+
+    print_r(Session::get('usuario_rol'));exit;
 
     $title = 'Bienvenido';
 

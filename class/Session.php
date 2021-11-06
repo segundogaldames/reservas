@@ -1,4 +1,5 @@
 <?php
+require_once('config.php');
 
 class Session
 {
@@ -137,7 +138,7 @@ class Session
 
 		if(time() - Session::get('tiempo') > (SESSION_TIME * 60)):
 			Session::destroy();
-			header('Location: ' . BASE_URL . 'error/access/8080');
+			header('Location: ' . BASE_URL);
 		else:
 			Session::set('tiempo', time());
 		endif;

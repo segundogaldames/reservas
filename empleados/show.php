@@ -124,7 +124,7 @@
                     <?php if(!$usuario): ?>
                         <a href="<?php echo ADD_USUARIO . $id; ?>" class="btn btn-outline-primary">Crear Cuenta</a>
                     <?php else: ?>
-                        <a href="<?php echo EDIT_PASSWORD . $id; ?>" class="btn btn-outline-success">Cambiar Password</a>
+                        <a href="<?php echo EDIT_PASSWORD . $usuario['id']; ?>" class="btn btn-outline-success">Cambiar Password</a>
                     <?php endif; ?>
                     <a href="<?php echo EMPLEADOS; ?>" class="btn btn-outline-primary">Volver</a>
                 </p>
