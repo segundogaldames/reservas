@@ -27,3 +27,4 @@ define('USUARIOS', BASE_URL . 'usuarios/');
 define('ADD_USUARIO', USUARIOS . 'add.php?empleado=' . PARAM);
 define('EDIT_PASSWORD', USUARIOS . 'editPassword.php?usuario=' . PARAM);
 define('EDIT_USUARIO', USUARIOS . 'edit.php?usuario=' . PARAM);
+define('LOGIN', USUARIOS . 'login.php');

@@ -29,6 +29,18 @@ class UsuarioModel extends Model
         return $usu->fetch();
     }
 
+    public function getUsuarioEmailClave($email, $clave)
+    {
+        $clave = Hash::getHash('sha1', $clave, HASH_KEY);
+
+        $usu = $this->_db->prepare("SELECT u.id, e.nombre as empleado, r.nombre as rol FROM usuarios u INNER JOIN empleados e ON u.empleado_id = e.id INNER JOIN roles r ON r.id = e.rol_id WHERE e.email = ? AND clave = ? AND u.activo = 1");
+        $usu->bindParam(1, $email);
+        $usu->bindParam(2, $clave);
+        $usu->execute();
+
+        return $usu->fetch();
+    }
+
     public function addUsuario($clave, $empleado)
     {
         $clave = Hash::getHash('sha1', $clave, HASH_KEY);
@@ -68,4 +80,5 @@ class UsuarioModel extends Model
 
         return $row;
     }
+
 }
