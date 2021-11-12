@@ -29,3 +29,7 @@ define('EDIT_PASSWORD', USUARIOS . 'editPassword.php?usuario=' . PARAM);
 define('EDIT_USUARIO', USUARIOS . 'edit.php?usuario=' . PARAM);
 define('LOGIN', USUARIOS . 'login.php');
 define('LOGOUT', USUARIOS . 'logout.php');
+
+#rutas telefonos
+define('TELEFONOS', BASE_URL . 'telefonos/');
+define('ADD_TEL_EMPL', TELEFONOS . 'addTelefonoEmpleado.php?empleado=' . PARAM);

@@ -53,6 +53,7 @@
     $title = 'Editar Especialidad';
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador'): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,3 +111,8 @@
 
 </body>
 </html>
+<?php else: ?>
+    <?php
+        header('Location: ' . LOGIN);
+    ?>
+<?php endif; ?>

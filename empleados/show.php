@@ -8,6 +8,7 @@
     require('../class/session.php');
     require('../class/empleadoModel.php');
     require('../class/usuarioModel.php');
+    require('../class/telefonoModel.php');
 
     $session = new Session;
 
@@ -16,9 +17,13 @@
 
         $empleados = new EmpleadoModel;
         $usuarios = new UsuarioModel;
+        $telefono = new TelefonoModel;
 
         $empleado = $empleados->getEmpleadoId($id);
         $usuario = $usuarios->getUsuarioEmpleado($id);
+        $type = 'Empleado';
+
+        $telefonos = $telefono->getTelefonoIdType($id, $type);
 
         if ($usuario) {
             $usu = $usuarios->getUsuarioId($usuario['id']);
@@ -33,7 +38,7 @@
     $title = 'Empleados';
 
 ?>
-<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador' || ($_SESSION['usuario_id']) == $usuario['id']): ?>
+<?php if(isset($_SESSION['autenticado']) && ($_SESSION['usuario_rol'] == 'Administrador' || ($_SESSION['usuario_rol']) == 'Supervisor') || $_SESSION['usuario_id'] == $usuario['id']): ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,6 +110,20 @@
                             </td>
                         </tr>
                     <?php endif; ?>
+                    <tr>
+                        <th>Teléfonos:</th>
+                        <td>
+                            <?php
+                                if ($telefonos) {
+                                    foreach ($telefonos as $telefono) {
+                                        echo '+56 '.$telefono['numero'];
+                                    }
+                                }else{
+                                    echo 'Sin teléfono';
+                                }
+                            ?>
+                        </td>
+                    </tr>
                    <tr>
                        <th>Fecha Creación:</th>
                        <td>
@@ -133,6 +152,7 @@
                     <?php else: ?>
                         <a href="<?php echo EDIT_PASSWORD . $usuario['id']; ?>" class="btn btn-outline-success">Cambiar Password</a>
                     <?php endif; ?>
+                    <a href="<?php echo ADD_TEL_EMPL . $id; ?>" class="btn btn-outline-success">Agregar Teléfono</a>
                     <a href="<?php echo EMPLEADOS; ?>" class="btn btn-outline-primary">Volver</a>
                 </p>
             <?php else: ?>
