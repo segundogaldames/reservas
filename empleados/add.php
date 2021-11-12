@@ -5,11 +5,12 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/session.php');
     require('../class/empleadoModel.php');
     require('../class/rolModel.php');
     require('../class/especialidadModel.php');
 
-    session_start();
+    $session = new Session;
 
     $empleados = new EmpleadoModel;
     $rol = new RolModel;
@@ -62,6 +63,7 @@
     $title = 'Nuevo Empleado';
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador'): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,3 +157,8 @@
 
 </body>
 </html>
+<?php else: ?>
+    <?php
+        header('Location: ' . LOGIN);
+    ?>
+<?php endif; ?>

@@ -28,3 +28,4 @@ define('ADD_USUARIO', USUARIOS . 'add.php?empleado=' . PARAM);
 define('EDIT_PASSWORD', USUARIOS . 'editPassword.php?usuario=' . PARAM);
 define('EDIT_USUARIO', USUARIOS . 'edit.php?usuario=' . PARAM);
 define('LOGIN', USUARIOS . 'login.php');
+define('LOGOUT', USUARIOS . 'logout.php');

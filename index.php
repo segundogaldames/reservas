@@ -5,9 +5,9 @@
     #llamada al archivo que contiene las rutas del sistema
     require('class/rutas.php');
     require('class/config.php');
-    require('class/Session.php');
+    require('class/session.php');
 
-    print_r(Session::get('usuario_rol'));exit;
+    $session = new Session;
 
     $title = 'Bienvenido';
 
@@ -29,9 +29,13 @@
     <header>
         <!-- llamada a archivo de menu -->
         <?php include('partials/menu.php'); ?>
+        <?php include('partials/mensajes.php'); ?>
     </header>
     <div class="container-fluid">
         <h1>Bienvenido al Sistema de Reservas de Horas Médicas</h1>
+        <?php if(isset($_SESSION['autenticado'])): ?>
+            Bienvenid@ <?php echo $_SESSION['usuario_nombre'] ?>
+        <?php endif; ?>
     </div>
 
 </body>

@@ -25,14 +25,23 @@
                 </li>
 
 
-
+                <?php if(!isset($_SESSION['autenticado'])): ?>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="<?php echo LOGIN; ?>">Iniciar Sesión</a>
                     </li>
-
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                <?php else: ?>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo $_SESSION['usuario_nombre'] ?>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?php echo SHOW_EMPLEADO . $_SESSION['usuario_empleado']; ?>">Mi Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="<?php echo LOGOUT; ?>">Cerrar Sesión</a></li>
+                    </ul>
                 </li>
+
+                <?php endif; ?>
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -5,11 +5,10 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
-    require('../class/Session.php');
+    require('../class/session.php');
     require('../class/usuarioModel.php');
 
-   //session_start();
-
+    $session = new Session;
     $usuarios = new UsuarioModel;
 
     $title = 'Login';
@@ -25,19 +24,21 @@
         }else {
             $usuario = $usuarios->getUsuarioEmailClave($email, $clave);
 
-            if ($usuario) {
-                Session::set('autenticado', true);
-                Session::set('usuario_id', $usuario['id']);
-                Session::set('usuario_nombre', $usuario['empleado']);
-                Session::set('usuario_rol', $usuario['rol']);
-
-                print_r(Session::get('usuario_id'));exit;
-                //header('Location: ' . BASE_URL);
+            if (!$usuario) {
+                $msg = 'El email o la clave no están registrados';
+            }else {
+                $id_usuario = $usuario['id'];
+                $id_empleado = $usuario['empleado_id'];
+                $nom_usuario = $usuario['empleado'];
+                $rol = $usuario['rol'];
+                $session->login($id_usuario, $id_empleado, $nom_usuario, $rol);
+                header('Location: ' . BASE_URL);
             }
         }
     }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +83,7 @@
                 <div class="mb-3">
                     <input type="hidden" name="confirm" value="1">
                     <button type="submit" class="btn btn-outline-success">Ingresar</button>
-                    <a href="<?php echo BASE_URL ?>" class="btn btn-outline-primary">Cancelar</a>
+                    <a href="<?php echo BASE_URL; ?>" class="btn btn-outline-primary">Cancelar</a>
                 </div>
             </form>
 

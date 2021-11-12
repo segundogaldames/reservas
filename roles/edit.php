@@ -5,7 +5,10 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/session.php');
     require('../class/rolModel.php');
+
+    $session = new Session;
 
 
     if (isset($_GET['rol'])) {
@@ -39,6 +42,7 @@
     $title = 'Editar Rol';
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador'): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,3 +100,8 @@
 
 </body>
 </html>
+<?php else: ?>
+    <?php
+        header('Location: ' . LOGIN);
+    ?>
+<?php endif; ?>

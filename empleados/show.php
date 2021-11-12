@@ -5,10 +5,11 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/session.php');
     require('../class/empleadoModel.php');
     require('../class/usuarioModel.php');
 
-    session_start();
+    $session = new Session;
 
     if (isset($_GET['empleado'])) {
         $id = (int) $_GET['empleado'];
@@ -32,6 +33,8 @@
     $title = 'Empleados';
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador' || ($_SESSION['usuario_id']) == $usuario['id']): ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +99,9 @@
                                         echo "No";
                                     }
                                 ?>
-                                <a href="<?php echo EDIT_USUARIO . $usu['id']; ?>" class="btn btn-link btn-sm">Modificar Estado</a>
+                                <?php if($_SESSION['usuario_rol'] == 'Administrador'): ?>
+                                    <a href="<?php echo EDIT_USUARIO . $usu['id']; ?>" class="btn btn-link btn-sm">Modificar Estado</a>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endif; ?>
@@ -120,7 +125,9 @@
                    </tr>
                 </table>
                 <p>
-                    <a href="<?php echo EDIT_EMPLEADO . $id ?>" class="btn btn-outline-success">Editar</a>
+                    <?php if($_SESSION['usuario_rol'] == 'Administrador'): ?>
+                        <a href="<?php echo EDIT_EMPLEADO . $id ?>" class="btn btn-outline-success">Editar</a>
+                    <?php endif; ?>
                     <?php if(!$usuario): ?>
                         <a href="<?php echo ADD_USUARIO . $id; ?>" class="btn btn-outline-primary">Crear Cuenta</a>
                     <?php else: ?>
@@ -137,3 +144,8 @@
 
 </body>
 </html>
+<?php else: ?>
+    <?php
+        header('Location: ' . LOGIN);
+    ?>
+<?php endif; ?>

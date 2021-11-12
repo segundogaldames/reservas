@@ -5,9 +5,10 @@
     #llamada al archivo que contiene las rutas del sistema
     require('../class/rutas.php');
     require('../class/config.php');
+    require('../class/session.php');
     require('../class/usuarioModel.php');
 
-    session_start();
+    $session = new Session;
 
     $usuarios = new UsuarioModel;
 
@@ -43,6 +44,7 @@
 
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador' || ($_SESSION['usuario_id']) == $usuario['id']): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,3 +102,8 @@
     </div>
 </body>
 </html>
+<?php else: ?>
+    <?php
+        header('Location: ' . LOGIN);
+    ?>
+<?php endif; ?>
