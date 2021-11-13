@@ -33,3 +33,6 @@ define('LOGOUT', USUARIOS . 'logout.php');
 #rutas telefonos
 define('TELEFONOS', BASE_URL . 'telefonos/');
 define('ADD_TEL_EMPL', TELEFONOS . 'addTelefonoEmpleado.php?empleado=' . PARAM);
+define('SHOW_TELEFONO', TELEFONOS . 'show.php?telefono=' . PARAM);
+define('EDIT_TELEFONO', TELEFONOS . 'edit.php?telefono=' . PARAM);
+define('DEL_TELEFONO', TELEFONOS . 'delete.php');

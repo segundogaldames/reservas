@@ -8,6 +8,15 @@ class TelefonoModel extends Model
         parent::__construct();
     }
 
+    public function getTelefonoId($id)
+    {
+        $tel = $this->_db->prepare("SELECT id, numero, telefonoable_id, telefonoable_type FROM telefonos WHERE id = ?");
+        $tel->bindParam(1, $id);
+        $tel->execute();
+
+        return $tel->fetch();
+    }
+
     public function getTelefonoNumero($numero)
     {
         $tel = $this->_db->prepare("SELECT id FROM telefonos WHERE numero = ?");
@@ -33,6 +42,17 @@ class TelefonoModel extends Model
         $tel->bindParam(1, $numero);
         $tel->bindParam(2, $id);
         $tel->bindParam(3, $type);
+        $tel->execute();
+
+        $row = $tel->rowCount();
+        return $row;
+    }
+
+    public function editTelefono($id, $numero)
+    {
+        $tel = $this->_db->prepare("UPDATE telefonos SET numero = ? WHERE id = ?");
+        $tel->bindParam(1, $numero);
+        $tel->bindParam(2, $id);
         $tel->execute();
 
         $row = $tel->rowCount();

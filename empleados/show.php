@@ -113,15 +113,15 @@
                     <tr>
                         <th>Teléfonos:</th>
                         <td>
-                            <?php
-                                if ($telefonos) {
-                                    foreach ($telefonos as $telefono) {
-                                        echo '+56 '.$telefono['numero'];
-                                    }
-                                }else{
-                                    echo 'Sin teléfono';
-                                }
-                            ?>
+                            <?php if ($telefonos): ?>
+                                <div class="list-group list-group-flush">
+                                    <?php foreach($telefonos as $telefono): ?>
+                                        <a href="<?php echo SHOW_TELEFONO . $telefono['id']; ?>" class="list-group-item list-group-item-action">+56 <?php echo $telefono['numero']; ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <p>Sin teléfono</p>
+                            <?php endif; ?>
                         </td>
                     </tr>
                    <tr>
