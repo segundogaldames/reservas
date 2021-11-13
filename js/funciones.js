@@ -9,6 +9,17 @@ function eliminarRol() {
     }
 }
 
+function eliminarTelefono() {
+    let eliminar = confirm('¿Desea eliminar el telefono?');
+    let form = document.form;
+
+    if (eliminar) {
+        form.submit();
+    }else{
+        window.location = "../telefonos/show.php?telefono=" + form.telefono.value;
+    }
+}
+
 function validaForm(){
     let form = document.form;
 

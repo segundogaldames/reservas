@@ -84,7 +84,7 @@
                     <form name="form" action="<?php echo DEL_TELEFONO; ?>" method="post">
                         <input type="hidden" name="telefono" value="<?php echo $id?>">
                         <input type="hidden" name="confirm" value="1">
-                        <button type="button" onclick="eliminarRol();" class="btn btn-outline-warning">Eliminar</button>
+                        <button type="button" onclick="eliminarTelefono();" class="btn btn-outline-warning">Eliminar</button>
                     </form>
                 </p>
             <?php else: ?>

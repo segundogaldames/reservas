@@ -58,4 +58,14 @@ class TelefonoModel extends Model
         $row = $tel->rowCount();
         return $row;
     }
+
+    public function deleteTelefono($id)
+    {
+        $tel = $this->_db->prepare("DELETE FROM telefonos WHERE id = ?");
+        $tel->bindParam(1, $id);
+        $tel->execute();
+
+        $row = $tel->rowCount();
+        return $row;
+    }
 }
