@@ -18,10 +18,13 @@
                             Administrar
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="<?php echo HORARIOS; ?>">Horarios</a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<?php echo ROLES; ?>">Roles</a></li>
                             <li><a class="dropdown-item" href="<?php echo ESPECIALIDADES; ?>">Especialidades</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<?php echo EMPLEADOS; ?>">Empleados</a></li>
+                            <li><a class="dropdown-item" href="<?php echo PACIENTES; ?>">Pacientes</a></li>
                         </ul>
                     </li>
                 <?php endif; ?>

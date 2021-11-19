@@ -8,6 +8,7 @@
     require('../class/session.php');
     require('../class/telefonoModel.php');
     require('../class/empleadoModel.php');
+    require('../class/pacienteModel.php');
 
     $session = new Session;
 
@@ -16,7 +17,8 @@
 
         $telefonos = new TelefonoModel;
         $empleados = new EmpleadoModel;
-        #verificar que hay un rol con el id del rol enviado desde index
+        $pacientes = new PacienteModel;
+
         $telefono = $telefonos->getTelefonoId($id);
 
         //print_r($telefono);exit;
@@ -27,7 +29,7 @@
         if ($type == 'Empleado') {
             $usuario = $empleados->getEmpleadoId($id_usuario);
         }else {
-            $usuario = '';
+            $usuario = $pacientes->getPacienteId($id_usuario);
         }
     }
 
@@ -75,10 +77,11 @@
                 </table>
                 <p>
                     <a href="<?php echo EDIT_TELEFONO . $id ?>" class="btn btn-outline-success">Editar</a>
+
                     <?php if($type == 'Empleado'): ?>
-                    <a href="<?php echo SHOW_EMPLEADO . $id_usuario; ?>" class="btn btn-outline-primary">Volver</a>
+                        <a href="<?php echo SHOW_EMPLEADO . $id_usuario; ?>" class="btn btn-outline-primary">Volver</a>
                     <?php else: ?>
-                        vista paciente id
+                        <a href="<?php echo SHOW_PACIENTE . $id_usuario; ?>" class="btn btn-outline-primary">Volver</a>
                     <?php endif; ?>
 
                     <form name="form" action="<?php echo DEL_TELEFONO; ?>" method="post">

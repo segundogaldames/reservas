@@ -14,6 +14,7 @@ class Session
 		$_SESSION['usuario_empleado'] = $id_empleado;
 		$_SESSION['usuario_nombre'] = $nom_usuario;
 		$_SESSION['usuario_rol'] = $rol;
+		$_SESSION['time'] = time();
 	}
 
 	public function logout()

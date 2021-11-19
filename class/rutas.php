@@ -33,6 +33,19 @@ define('LOGOUT', USUARIOS . 'logout.php');
 #rutas telefonos
 define('TELEFONOS', BASE_URL . 'telefonos/');
 define('ADD_TEL_EMPL', TELEFONOS . 'addTelefonoEmpleado.php?empleado=' . PARAM);
+define('ADD_TEL_PAC', TELEFONOS . 'addTelefonoPaciente.php?paciente=' . PARAM);
 define('SHOW_TELEFONO', TELEFONOS . 'show.php?telefono=' . PARAM);
 define('EDIT_TELEFONO', TELEFONOS . 'edit.php?telefono=' . PARAM);
 define('DEL_TELEFONO', TELEFONOS . 'delete.php');
+
+#rutas de pacientes
+define('PACIENTES', BASE_URL . 'pacientes/');
+define('ADD_PACIENTE', PACIENTES . 'add.php');
+define('SHOW_PACIENTE', PACIENTES . 'show.php?paciente=' . PARAM);
+define('EDIT_PACIENTE', PACIENTES . 'edit.php?paciente=' . PARAM);
+
+#rutas de horarios
+define('HORARIOS', BASE_URL . 'horarios/');
+define('ADD_HORARIO', HORARIOS . 'add.php');
+define('SHOW_HORARIO', HORARIOS . 'show.php?horario=' . PARAM);
+define('EDIT_HORARIO', HORARIOS . 'edit.php?horario=' . PARAM);
