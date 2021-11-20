@@ -31,11 +31,15 @@
         <?php include('partials/menu.php'); ?>
         <?php include('partials/mensajes.php'); ?>
     </header>
-    <div class="container-fluid">
-        <h1>Bienvenido al Sistema de Reservas de Horas Médicas</h1>
-        <?php if(isset($_SESSION['autenticado'])): ?>
-            Bienvenid@ <?php echo $_SESSION['usuario_nombre'] ?>
-        <?php endif; ?>
+    <div class="container">
+        <h1 class="text-center">Bienvenido al Sistema de Reservas de Horas Médicas</h1>
+        <div class="col-md-6">
+            <div class="list-group">
+                <a href="<?php echo RESERVAS; ?>" class="list-group-item list-group-item-action">Ver Reservas</a>
+                <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+            </div>
+        </div>
+
     </div>
 
 </body>

@@ -49,3 +49,9 @@ define('HORARIOS', BASE_URL . 'horarios/');
 define('ADD_HORARIO', HORARIOS . 'add.php');
 define('SHOW_HORARIO', HORARIOS . 'show.php?horario=' . PARAM);
 define('EDIT_HORARIO', HORARIOS . 'edit.php?horario=' . PARAM);
+
+#rutas reservas
+define('RESERVAS', BASE_URL . 'reservas/');
+define('ADD_RESERVA', RESERVAS . 'add.php?paciente=' . PARAM);
+define('SHOW_RESERVA', RESERVAS . 'show.php?reserva=' . PARAM);
+define('EDIT_RESERVA', RESERVAS . 'edit.php?reserva=' . PARAM);
